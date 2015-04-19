@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./Plantillas/Plantilla.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="top">
+        <img src="imagenes/ruta2.jpg" alt=""/>
+        <h1 align='center'>Spa Posada del Quenti</h1>
+        
+           
+        </ui:define>
+    
+
+    <ui:define name="content">
+        
+        <h1>Clientes</h1>
+        <h:form>
+        <h:outputText value="Ingrese el Apellido a buscar"/>  
+        <h:inputText value="#{indexBean.busquedastr}"/>
+        <h:commandButton action="#{indexBean.filtrar(indexBean.busquedastr)}" value="Filtrar"/> 
+        <br/>
+        <h:commandButton action="alta" value="Nuevo Cliente"/>
+        <br/>
+        <h:dataTable value="#{indexBean.cliente}" var="cli" border="1" rendered="#{indexBean.visible}">
+             <h:column>
+                    <f:facet name="header">Código</f:facet>
+                        #{cli.cliId}                    
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Nombre</f:facet>
+                        #{cli.cliNom}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Apellido</f:facet>
+                        #{cli.cliApe}
+                </h:column>
+               <h:column>
+                    <f:facet name="header">Domicilio</f:facet>
+                        #{cli.cliDir}
+                </h:column>
+               <h:column>
+                    <f:facet name="header">Provincia</f:facet>
+                        #{cli.cliPcia}
+                </h:column>
+               
+               <h:column>
+                   <h:commandLink action="#{editarBean.editar(cli.cliId)}" value="editar"/>&nbsp; &nbsp;
+                   <h:commandLink action="#{bajaBean.confirmar(cli)}" value="borrar"/>
+               </h:column>
+            </h:dataTable>  
+        </h:form>
+         <hr></hr>
+    </ui:define>
+
+    <ui:define name="bottom">
+        bottom
+    </ui:define>
+
+</ui:composition>

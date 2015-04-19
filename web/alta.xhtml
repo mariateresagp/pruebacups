@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./Plantillas/Plantilla.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <ui:define name="top">
+        top
+    </ui:define>
+    <ui:define name="content">
+        <h1>Nuevo Cliente</h1>
+        <h:form>
+            <h:panelGrid columns="3">
+                <h:outputLabel value="Codigo" for="cCodigo"/>
+                <h:inputText label="Codigo" value="#{altaBean.cli.cliId}" id="cCodigo" required="true"/>
+                <h:message for="pCodigo"/>
+                <h:outputLabel value="Nombre" for="cNom"/>
+                <h:inputText label="Nombre" value="#{altaBean.cli.cliNom}" id="cNom" required="true"/>
+                <h:message for="cNom"/>
+                <h:outputLabel value="Apellido" for="cApe"/>
+                <h:inputText label="Apellido" value="#{altaBean.cli.cliApe}" id="cApe" required="true"/>
+                <h:message for="cApe"/>
+                <h:outputLabel value="Dirección" for="cDir"/>
+                <h:inputText label="cDir" value="#{altaBean.cli.cliDir}" id="cDir" required="true"/>
+                <h:message for="cDir"/>
+                <h:outputLabel value="Provincia" for="cProv"/>
+                <h:inputText label="Provincia" value="#{altaBean.cli.cliPcia}" id="cProv" required="true"/>
+                <h:message for="cProv"/>
+                <h:commandButton action="#{altaBean.insertar()}" value="Guardar"/>
+                <h:commandButton action="index" value="Cancelar" immediate="true"/>
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
+    <ui:define name="bottom">
+        bottom
+    </ui:define>
+</ui:composition>

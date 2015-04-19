@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-nov-2014 19:14:15 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.registro.modelo.Clientes" table="clientes" catalog="registro">
+        <id name="cliId" type="java.lang.Integer">
+            <column name="cliId" />
+            <generator class="identity" />
+        </id>
+        <property name="cliNom" type="string">
+            <column name="cliNom" length="50" />
+        </property>
+        <property name="cliApe" type="string">
+            <column name="cliApe" length="50" />
+        </property>
+        <property name="cliDir" type="string">
+            <column name="cliDir" length="50" />
+        </property>
+        <property name="cliPcia" type="string">
+            <column name="cliPcia" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

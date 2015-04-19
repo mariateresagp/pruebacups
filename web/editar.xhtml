@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./Plantillas/Plantilla.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+           
+                
+
+    <ui:define name="top">
+        top
+    </ui:define>
+
+    <ui:define name="content">
+        <h1>Editar Clientes</h1>
+            <h:form>
+            <h:panelGrid columns="3">
+                <h:outputLabel value="Codigo" for="pCodigo"/>
+                <h:outputText  value="#{editarBean.cli.cliId}" id="pCodigo"/>
+                <h:message for="pCodigo"/>              
+
+                <h:outputLabel value="Nombre" for="cNom"/>
+                <h:inputText label="Nombre" value="#{editarBean.cli.cliNom}" id="cNom" required="true"/>
+                <h:message for="cNom"/>
+
+                <h:outputLabel value="Apellido" for="cApe"/>
+                <h:inputText label="Apellido" value="#{editarBean.cli.cliApe}" id="cApe" required="true" >
+                </h:inputText>
+                <h:message for="cApe"/>
+
+                 <h:outputLabel value="Dirección" for="cDir"/>
+                 <h:inputText label="Dirección" value="#{editarBean.cli.cliDir}" id="cDir" required="true"/>
+                <h:message for="cDir"/>
+                
+                <h:outputLabel value="Provincia" for="cProv"/>
+                <h:inputText label="Provincia" value="#{editarBean.cli.cliPcia}" id="cProv" required="true" >
+                </h:inputText>
+                <h:message for="cApe"/>
+                
+
+                <h:commandButton action="#{editarBean.guardar()}" value="Guardar"/>
+                <h:commandButton action="index" value="Cancelar" immediate="true"/>
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
+
+    <ui:define name="bottom">
+        bottom
+    </ui:define>
+
+</ui:composition>
